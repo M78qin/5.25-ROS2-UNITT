@@ -1,0 +1,85 @@
+# ========== Unity 运行产物（必忽略，体积大）==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# ========== 只备份「你写的代码」，忽略场景/模型/贴图等 ==========
+*.unity
+*.prefab
+*.controller
+*.anim
+*.playable
+*.mask
+*.brush
+*.terrainlayer
+
+# 贴图 / 模型 / 音频 / 字体 / 视频
+*.png
+*.jpg
+*.jpeg
+*.tga
+*.psd
+*.tif
+*.tiff
+*.exr
+*.hdr
+*.gif
+*.fbx
+*.obj
+*.blend
+*.dae
+*.mat
+*.wav
+*.mp3
+*.ogg
+*.ttf
+*.otf
+*.woff
+*.mp4
+*.mov
+
+# 二进制与包
+*.dll
+*.so
+*.bundle
+*.unitypackage
+*.apk
+*.aab
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 编辑器杂项
+.vs/
+.idea/
+.obsidian/
+.DS_Store
+Thumbs.db
+
+# ========== 第三方 / 非自写资源目录（整目录忽略）==========
+/[Aa]ssets/TextMesh Pro/
+/[Aa]ssets/Samples/
+/[Aa]ssets/XR/
+/[Aa]ssets/XRI/
+/[Aa]ssets/Doosan_H2515/
+/[Aa]ssets/Prefabs/
+/[Aa]ssets/Scenes/
+/[Aa]ssets/Resources/
+/[Aa]ssets/Settings/
+/[Aa]ssets/Logs/
+
+# ScriptableObject 等资源文件（体积不确定；需要时可单独取消注释某路径）
+*.asset
+
+# ProjectSettings 仅保留 Unity 版本号（其余为编辑器自动生成）
+/[Pp]roject[Ss]ettings/*
+!/[Pp]roject[Ss]ettings/ProjectVersion.txt
+
+# 保留：*.cs、*.cs.meta、*.md、*.shader、*.asmdef、Tools/*.py、Packages 清单

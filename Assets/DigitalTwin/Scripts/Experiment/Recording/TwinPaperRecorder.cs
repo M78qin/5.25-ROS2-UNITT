@@ -55,6 +55,7 @@ namespace DigitalTwin
         public bool IsReady => _ready;
         public bool IsRecording => _running;
         public bool RecordEnabled => _recordEnabled;
+        public bool StreamEnabled => _streamEnabled;
         public int PendingCount => (int)Math.Min(int.MaxValue, Math.Max(0, Interlocked.Read(ref _pendingRows)));
         public long DroppedRowCount => Interlocked.Read(ref _droppedRows);
         public string LastError => _lastError;
@@ -695,7 +696,7 @@ namespace DigitalTwin
             b.Append(endToEndWallMs.ToString("0.###", CultureInfo.InvariantCulture)).Append(',');
             b.Append(frame.ClockSyncStatus).Append(',');
             b.Append(frame.Quality).Append(',');
-            b.Append(frame.Flags).Append(',');
+            b.Append(((long)frame.Flags).ToString(CultureInfo.InvariantCulture)).Append(',');
             b.Append(frame.RawPayload == null ? 0 : Encoding.UTF8.GetByteCount(frame.RawPayload)).Append(',');
             b.Append(phaseId).Append(',');
             b.Append(segmentId).Append(',');

@@ -1,5 +1,7 @@
 # DigitalTwin 配置资产说明
 
+> 上级：[README](../README.md) · **场景挂载/单位**：[INTERFACES.md §3、§10](../INTERFACES.md) · 运行时：[Scripts/Runtime/README.md](../Scripts/Runtime/README.md)
+
 当前场景只需要两个主要配置入口：
 
 ```text
@@ -135,7 +137,34 @@ RobotModelController: radian -> degree -> ArticulationDrive.target
 ForceVector: [Fx,Fy,Fz,Tx,Ty,Tz]
 ```
 
-## 6. 后续 AI 修改规则
+## 7. `TwinRuntimeSettings` 快照字段（Runtime 热路径）
+
+由 `TwinRuntimeProfile.BuildRuntimeSettings()` 生成，`DigitalTwinRuntime.OnEnable` 读取：
+
+| 分组 | 字段（节选） |
+|------|----------------|
+| 源 | `UseDartStudio`, `UseRos2`, `UseReplay`, `AutoStartDartTransport`, `ReplayCsvPath`, `ReplayHz` |
+| 显示 | `EnableLiveRobotSync`, `RobotApplyRateHz`, `UseLatestFrameOnlyForRobotView`, `EnableGhostRobot` |
+| 控制 | `EnableBidirectionalControl`, `EnableRealRobotCommand`, `EnableDryRun`, `StartStateToleranceDeg` |
+| Legacy 记录 | `EnableRecording`, `RecordAllReceivedFrames`, `RecordQueueHardLimit` |
+| Paper | `EnablePaperRecorder`, `PaperRecordReceiveFrames`, `PaperRecordApplyFrames`, `PaperStorageRootDirectory` |
+| UI/性能 | `EnableRuntimeUi`, `EnableMetrics`, `MaxSourceDrainPerFrame`, `EnableDebugOverlay` |
+
+完整列表见 `Config/Scripts/TwinRuntimeSettings.cs`。
+
+## 8. 改开关时对应运行时模块
+
+| Profile 字段 | 影响的 README |
+|--------------|---------------|
+| `enableDartStudioSource` | [Communication](../Scripts/Communication/README.md) |
+| `enableRos2Source` | [Communication](../Scripts/Communication/README.md) + [Experiment/Ros2](../Scripts/Experiment/Ros2/README.md) |
+| `enableBidirectionalControl` / `enableDryRun` | [Control](../Scripts/Control/README.md) |
+| `enablePaperRecorder` | [Experiment/Recording](../Scripts/Experiment/Recording/README.md) |
+| `enableRuntimeUI` | [UI](../Scripts/UI/README.md) |
+| `enableReplayStateSource` | [Experiment/Replay](../Scripts/Experiment/Replay/README.md) |
+| `jointNames` / 校准 | [RobotModel](../Scripts/RobotModel/README.md) + 本文件 §3 |
+
+## 9. 后续 AI 修改规则
 
 后续让 AI 改配置或接口时，优先给它这些文件：
 

@@ -4,6 +4,7 @@ namespace DigitalTwin
     {
         public bool UseDartStudio;
         public bool AutoStartDartTransport;
+        public bool AutoStartRos2Transport;
         public bool UseRos2;
         public bool UseSqliteReplay;
         public bool UseReplay;

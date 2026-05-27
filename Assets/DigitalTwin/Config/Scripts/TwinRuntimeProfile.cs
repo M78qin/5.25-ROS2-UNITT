@@ -23,6 +23,8 @@ namespace DigitalTwin
         public bool autoStartDartTransport;
         [Tooltip("最高优先级 ROS2 数据源开关。即使子 SystemProfile 设置不同，运行时也以这里为准。")]
         public bool enableRos2Source;
+        [Tooltip("When false, Play Mode only initializes Ros2Bridge. Ros2ExperimentPanel Connect starts TCP/subscribe lifecycle.")]
+        public bool autoStartRos2Transport;
         [Tooltip("最高优先级 SQLite 回放数据源开关。即使子 SystemProfile 设置不同，运行时也以这里为准。")]
         public bool enableSqliteReplaySource;
         [Tooltip("最高优先级 CSV 回放源开关。This is a real experiment replay source, not a mock source.")]
@@ -181,6 +183,7 @@ namespace DigitalTwin
         {
             settings.UseDartStudio = enableDartStudioSource;
             settings.AutoStartDartTransport = autoStartDartTransport;
+            settings.AutoStartRos2Transport = autoStartRos2Transport;
             settings.UseRos2 = enableRos2Source;
             settings.UseSqliteReplay = enableSqliteReplaySource;
             settings.UseReplay = enableReplayStateSource;
@@ -193,6 +196,7 @@ namespace DigitalTwin
         {
             settings.UseDartStudio = enableDartStudioSource;
             settings.AutoStartDartTransport = autoStartDartTransport;
+            settings.AutoStartRos2Transport = autoStartRos2Transport;
             settings.UseRos2 = enableRos2Source;
             settings.UseSqliteReplay = enableSqliteReplaySource;
             settings.UseReplay = enableReplayStateSource;
@@ -264,6 +268,7 @@ namespace DigitalTwin
 
             enableDartStudioSource = settings.UseDartStudio;
             autoStartDartTransport = settings.AutoStartDartTransport;
+            autoStartRos2Transport = settings.AutoStartRos2Transport;
             enableRos2Source = settings.UseRos2;
             enableSqliteReplaySource = settings.UseSqliteReplay;
             enableReplayStateSource = settings.UseReplay;
